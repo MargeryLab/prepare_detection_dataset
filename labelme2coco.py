@@ -7,7 +7,7 @@ from sklearn.model_selection import train_test_split
 np.random.seed(41)
 
 #0为背景
-classname_to_id = {"person": 1}
+classname_to_id = {"tumor": 1}
 
 class Lableme2CoCo:
 
@@ -93,8 +93,8 @@ class Lableme2CoCo:
 
 
 if __name__ == '__main__':
-    labelme_path = "labelme/"
-    saved_coco_path = "./"
+    labelme_path = "/media/margery/4ABB9B07DF30B9DB/pythonDemo/medical_image_segmentation/Data/data_png_png/masks"
+    saved_coco_path = "../mask_coco"
     # 创建文件
     if not os.path.exists("%scoco/annotations/"%saved_coco_path):
         os.makedirs("%scoco/annotations/"%saved_coco_path)
