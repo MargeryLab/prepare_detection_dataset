@@ -27,10 +27,12 @@ test_txt_path = '/media/margery/4ABB9B07DF30B9DB/MedicalImagingDataset/Kvasir-SE
 import shutil
 train_des_path = '/media/margery/4ABB9B07DF30B9DB/pythonDemo/medical_image_segmentation/MSBC-Net/datasets/rectalTumor/rectal_tumor_train'
 test_des_path = '/media/margery/4ABB9B07DF30B9DB/pythonDemo/medical_image_segmentation/MSBC-Net/datasets/rectalTumor/rectal_tumor_val'
-with open(train_txt_path, 'r') as file:
+with open(test_txt_path, 'r') as file:
     while True:
         lines = file.readline()
         if not lines:
             break
 
-        shutil.copy(lines[:-1], os.path.join(train_des_path, lines[:-1].split('/')[-1]))
+        shutil.copy(lines[:-1], os.path.join(test_des_path, lines[:-1].split('/')[-1]))
+
+

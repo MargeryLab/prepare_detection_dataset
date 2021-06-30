@@ -9,6 +9,9 @@ from PIL import Image
 import numpy as np
 from pycococreatortools import pycococreatortools
 
+"""
+生成box前一定要注意mask矩阵是否符合规则
+"""
 ROOT_DIR = './'
 DATA_DIR = '/media/margery/4ABB9B07DF30B9DB/MedicalImagingDataset/Kvasir-SEG'
 ANNOTATION_TUMOR_DIR = '/media/margery/4ABB9B07DF30B9DB/MedicalImagingDataset/Kvasir-SEG/masks'
@@ -49,7 +52,7 @@ def filter_for_jpeg(root, files):
 
 
 def filter_for_annotations(root, files, image_filename):
-    file_types = ['*.jpg']
+    file_types = ['*.png']
     file_types = r'|'.join([fnmatch.translate(x) for x in file_types])
     basename_no_extension = os.path.splitext(os.path.basename(image_filename))[0]
     # file_name_prefix = basename_no_extension + '.*'
@@ -91,7 +94,7 @@ def main():
                                          .convert('1')).astype(np.uint8)
                 t_anno_info = pycococreatortools.create_annotation_info(
                     segmentation_id, image_id, t_category_info, t_binary_mask,
-                    image.size, tolerance=2)
+                    image.size, tolerance=1)
                 if t_anno_info is not None:
                     coco_output["annotations"].append(t_anno_info)
                     segmentation_id = segmentation_id + 1

@@ -11,8 +11,8 @@ from pycococreatortools import pycococreatortools
 
 ROOT_DIR = '../'
 DATA_DIR = '/media/margery/4ABB9B07DF30B9DB/pythonDemo/medical_image_segmentation/Data/data_png_png'
-ANNOTATION_TUMOR_DIR = '../train_tumor_mask'
-ANNOTATION_WALL_DIR = '../train_wall_mask'
+ANNOTATION_TUMOR_DIR = '../test_tumor_mask'
+ANNOTATION_WALL_DIR = '../test_wall_mask'
 
 INFO = {
     "description": "Rectal Cancer Dataset",
@@ -78,8 +78,9 @@ def main():
     image_id = 1
     segmentation_id = 1
 
-    data_list = [l.strip('\n') for l in open(os.path.join(DATA_DIR,'train.txt')).readlines()]
+    # data_list = [l.strip('\n') for l in open(os.path.join(DATA_DIR,'train.txt')).readlines()]
     # data_list = [l.strip('\n') for l in open(os.path.join(DATA_DIR,'val.txt')).readlines()]
+    data_list = [file for file in os.listdir('/media/margery/4ABB9B07DF30B9DB/pythonDemo/tools/prepare_detection_dataset/imgs_rectal')]
     for i in range(len(data_list)):
         image = Image.open(os.path.join(DATA_DIR,'imgs',data_list[i]))
         image_info = pycococreatortools.create_image_info(
@@ -117,7 +118,7 @@ def main():
                     segmentation_id = segmentation_id + 1
         image_id = image_id + 1
 
-    with open('{}/rectal_seg_train.json'.format(ROOT_DIR), 'w') as output_json_file:
+    with open('{}/rectal_seg_test.json'.format(ROOT_DIR), 'w') as output_json_file:
         json.dump(coco_output, output_json_file)
 
 

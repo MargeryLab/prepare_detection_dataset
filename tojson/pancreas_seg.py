@@ -10,8 +10,8 @@ import numpy as np
 from pycococreatortools import pycococreatortools
 
 ROOT_DIR = './'
-DATA_DIR = '/media/margery/4ABB9B07DF30B9DB/MedicalImagingDataset/Pancreas-CT/train/ct'
-ANNOTATION_TUMOR_DIR = '/media/margery/4ABB9B07DF30B9DB/MedicalImagingDataset/Pancreas-CT/train/seg_whole'
+DATA_DIR = '/media/margery/4ABB9B07DF30B9DB/MedicalImagingDataset/Pancreas-CT/PNG/test/ct'
+ANNOTATION_TUMOR_DIR = '/media/margery/4ABB9B07DF30B9DB/MedicalImagingDataset/Pancreas-CT/PNG/test/seg_whole'
 
 INFO = {
     "description": "Pancreas Segmentation Dataset",
@@ -103,7 +103,7 @@ def main():
 
         image_id = image_id + 1
 
-    with open('{}/rectal_seg_train.json'.format(ROOT_DIR), 'w') as output_json_file:
+    with open('{}/rectal_seg_test.json'.format(ROOT_DIR), 'w') as output_json_file:
         json.dump(coco_output, output_json_file)
 
 

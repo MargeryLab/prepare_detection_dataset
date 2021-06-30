@@ -3,6 +3,8 @@ import cv2
 import os
 import numpy as np
 
+# gt_path = '/media/margery/4ABB9B07DF30B9DB/pythonDemo/tools/prepare_detection_dataset/test_tumor_whole'
+# gt_crop_save = '/media/margery/4ABB9B07DF30B9DB/pythonDemo/tools/prepare_detection_dataset/test_tumor_mask'
 gt_path = '/media/margery/4ABB9B07DF30B9DB/MedicalImagingDataset/Kvasir-SEG/masks_raw'
 gt_crop_save = '/media/margery/4ABB9B07DF30B9DB/MedicalImagingDataset/Kvasir-SEG/masks'
 
@@ -343,5 +345,6 @@ def wall_bbox():
 
 if __name__ == '__main__':
     # crop_imgs_gt()
-    wall_bbox()
+    wall_bbox()#注意png还是png
+
 
