@@ -1,15 +1,8 @@
 **背景**
 
-万事开头难。之前写图像识别的博客教程，也是为了方便那些学了很多理论知识，却对实际项目无从下手的小伙伴，后来转到目标检测来了，师从烨兄、亚光兄，从他们那学了不少检测的知识和操作，今天也终于闲下了，准备写个检测系列的总结。一方面分享知识希望可以一起学习，另一方面让一部分人少走弯路，快速上路（入坑）。
-
-此部分代码：[Github](https://github.com/spytensor/prepare_detection_dataset)
+此项目中有一部分代码由：[Github](https://github.com/spytensor/prepare_detection_dataset)
+提供，
 博客地址: [目标检测系列一：如何制作数据集?](http://www.spytensor.com/index.php/archives/48/)
-
-
-**更新**
-
-- (28/03/2019)
-    - 新增 `csv2labelme`
 
 
 <h4 id="1">1. 内容介绍</h4>
@@ -22,6 +15,10 @@
 - labelme to voc
 - csv to json
 
+其中tojson目录中新增了几个公开数据集及私有数据（包含用于分割任务的一类目标及两类目标分割）的转换json格式代码，
+同时增加了随机分割数据集为训练集和测试集代码（split_dataset.py）和单张图片中多实例通过连通方式分成单实例的
+处理代码（split_instance.py）。
+
 <h4 id="2">2. 标准格式</h4>
 
 在使用转换脚本之前，必须要明确的几种格式
@@ -31,7 +28,7 @@
 不要一看是`csv`文件就直接拿来运行，如果不是，可以自行修改代码，或者修改标注文件。
 
 转换脚本支持的csv格式应为以下形式:
-
+试集代码（split_dataset.py）和单张图片中多实例通过连通方式分成单实例的处理代码。
 - `csv/`
     - `labels.csv`
     - `images/`
